@@ -1,0 +1,17 @@
+/* BookingForm.css */
+.react-datepicker {
+  font-family: 'Inter', sans-serif;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e2e8f0;
+}
+
+.react-datepicker__day--selected,
+.react-datepicker__day--keyboard-selected {
+  background-color: #FF7A00 !important;
+  color: white !important;
+}
+
+.react-datepicker__day:hover {
+  background-color: #ffd580 !important;
+}
