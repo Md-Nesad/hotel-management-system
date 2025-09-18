@@ -113,9 +113,9 @@ const BookingForm = () => {
         <div className='bg-white mx-auto flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-4'>
           {/* Check-in Date */}
           <fieldset className='relative border border-gray-400 rounded-lg px-2 w-full sm:w-auto'>
-            {/* <legend className='text-sm font-medium text-gray-600'>
+            <legend className='text-sm font-medium text-gray-600'>
               Check-in Date
-            </legend> */}
+            </legend>
             <div className='relative'>
               <input
                 id='checkin'
@@ -155,9 +155,9 @@ const BookingForm = () => {
 
           {/* Check-out Date */}
           <fieldset className='relative border border-gray-300 rounded-lg px-2 w-full sm:w-auto'>
-            {/* <legend className='text-sm font-medium text-gray-600'>
+            <legend className='text-sm font-medium text-gray-600'>
               Check-out Date
-            </legend> */}
+            </legend>
             <div className='relative'>
               <input
                 id='checkout'

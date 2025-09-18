@@ -64,7 +64,7 @@ export interface ApiRoom {
   amenities: string[]
 }
 
-const BASE_URL = 'https://backend.bahamaslrb.com'
+const BASE_URL = 'https://backend.bahamaslrb.com/'
 //icon for amenities
 const amenityIconMap: { [key: string]: React.ElementType } = {
   'Free Wifi': Wifi,
