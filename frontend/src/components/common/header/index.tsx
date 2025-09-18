@@ -2,6 +2,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom'
 import Button from '../../ui/Button'
 import logo from '../../../assets/bahamas-logo.png'
 import { useState } from 'react'
+import { useAuth } from '../../../context/AuthContext'
 
 const Header = () => {
   const navigate = useNavigate()
@@ -9,6 +10,7 @@ const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const isAuthenticated = !!localStorage.getItem('token')
   const role = localStorage.getItem('role')
+  const { logout } = useAuth()
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen)
@@ -53,16 +55,25 @@ const Header = () => {
             <div className='flex flex-wrap sm:gap-4 max-sm:pb-3'>
               {isAuthenticated ? (
                 role === 'admin' ? (
-                  <button className='bg-[#F9862D] hover:bg-orange-500 hover:opacity-90 text-[#FFFFFF] font-inter font-medium px-3 py-1.5 sm:px-6 sm:py-2 rounded text-sm transition-all duration-200 shadow-sm cursor-pointer'>
+                  <Link
+                    to='/dashboard/room'
+                    className='bg-[#F9862D] hover:bg-orange-500 hover:opacity-90 text-[#FFFFFF] font-inter font-medium px-3 py-1.5 sm:px-6 sm:py-2 rounded text-sm transition-all duration-200 shadow-sm cursor-pointer'
+                  >
                     Dashboard
-                  </button>
+                  </Link>
                 ) : (
-                  <button className='bg-[#F9862D] hover:bg-orange-500 hover:opacity-90 text-[#FFFFFF] font-inter font-medium px-3 py-1.5 sm:px-6 sm:py-2 rounded text-sm transition-all duration-200 shadow-sm cursor-pointer'>
+                  <button
+                    onClick={logout}
+                    className='bg-[#F9862D] hover:bg-orange-500 hover:opacity-90 text-[#FFFFFF] font-inter font-medium px-3 py-1.5 sm:px-6 sm:py-2 rounded text-sm transition-all duration-200 shadow-sm cursor-pointer'
+                  >
                     Logout
                   </button>
                 )
               ) : (
-                <button className='bg-[#F9862D] hover:bg-orange-500 hover:opacity-90 text-[#FFFFFF] font-inter font-medium px-3 py-1.5 sm:px-6 sm:py-2 rounded text-sm transition-all duration-200 shadow-sm cursor-pointer'>
+                <button
+                  onClick={() => navigate('/login')}
+                  className='bg-[#F9862D] hover:bg-orange-500 hover:opacity-90 text-[#FFFFFF] font-inter font-medium px-3 py-1.5 sm:px-6 sm:py-2 rounded text-sm transition-all duration-200 shadow-sm cursor-pointer'
+                >
                   Login
                 </button>
               )}
